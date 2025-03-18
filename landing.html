@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Living in the Heart of the City | Modern Real Estate Development</title>
+    <meta name="description" content="Experience modern design, premium amenities, and a lifestyle of comfort in our newest community. Your dream home awaits.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        .hero-section {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+                        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-title {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-subtitle {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            animation: slideInRight 1s ease-out;
+        }
+
+        .hero-buttons {
+            animation: fadeInUp 1s ease-out 0.5s backwards;
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+            z-index: 1;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-feature {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero-feature:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .hero-button:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .testimonial-slider {
+            scroll-behavior: smooth;
+        }
+        
+        .amenity-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .amenity-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Newsletter Popup Styles */
+        .newsletter-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        /* Property Features Hover Effect */
+        .property-feature {
+            transition: all 0.3s ease;
+        }
+
+        .property-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Virtual Tour Button Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .virtual-tour-btn {
+            animation: pulse 2s infinite;
+        }
+
+        /* Add these new styles to your existing style section */
+        .form-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="%23e2e8f0"/></svg>');
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .form-container {
+            position: relative;
+            z-index: 1;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            padding: 3rem;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .form-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            border-radius: 3px;
+        }
+
+        .form-input {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .form-input input,
+        .form-input select {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 1rem;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s ease;
+            color: #1e293b;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-input input:hover,
+        .form-input select:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-input input:focus,
+        .form-input select:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+            outline: none;
+        }
+
+        .form-input label {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: 0 0.5rem;
+            color: #64748b;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            border-radius: 0.5rem;
+        }
+
+        .form-input input:focus + label,
+        .form-input input:not(:placeholder-shown) + label,
+        .form-input select:focus + label,
+        .form-input select:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 0.875rem;
+            color: #3b82f6;
+            font-weight: 500;
+        }
+
+        .form-input::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .form-input:focus-within::after {
+            width: 100%;
+        }
+
+        .form-input.error input,
+        .form-input.error select {
+            border-color: #ef4444;
+        }
+
+        .form-input.error label {
+            color: #ef4444;
+        }
+
+        .form-input.error::after {
+            background: #ef4444;
+        }
+
+        .form-input.success input,
+        .form-input.success select {
+            border-color: #10b981;
+        }
+
+        .form-input.success label {
+            color: #10b981;
+        }
+
+        .form-input.success::after {
+            background: #10b981;
+        }
+
+        .form-input .input-icon {
+            position: absolute;
+            right: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus-within .input-icon {
+            color: #3b82f6;
+        }
+
+        .form-input.error .input-icon {
+            color: #ef4444;
+        }
+
+        .form-input.success .input-icon {
+            color: #10b981;
+        }
+
+        /* Add animation for input focus */
+        @keyframes inputFocus {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .form-input:focus-within {
+            animation: inputFocus 0.3s ease;
+        }
+
+        .submit-button {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            transition: all 0.3s ease;
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .form-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .form-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        .form-feature i {
+            color: #3b82f6;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-icon {
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-icon-1 { top: 10%; left: 5%; }
+        .floating-icon-2 { top: 20%; right: 5%; }
+        .floating-icon-3 { bottom: 10%; left: 10%; }
+
+        /* Mobile Navigation Styles */
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            .desktop-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem !important;
+                padding: 0 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem !important;
+                padding: 0 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .hero-button {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .hero-feature {
+                width: 100%;
+                text-align: center;
+            }
+
+            .form-container {
+                padding: 2rem 1rem;
+            }
+
+            .grid {
+                gap: 1rem;
+            }
+        }
+
+        /* Enhanced Mobile Navigation */
+        .mobile-menu-button {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: white;
+                padding: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-menu.active {
+                right: 0;
+            }
+
+            .mobile-menu a {
+                display: block;
+                padding: 1rem 0;
+                border-bottom: 1px solid #eee;
+                color: #333;
+                font-size: 1.1rem;
+            }
+
+            .mobile-menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+
+            .mobile-menu-overlay.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl font-bold text-blue-600">Luxury Estates</span>
+                </div>
+                <div class="desktop-menu hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2">About</a>
+                        <a href="#amenities" class="text-gray-700 hover:text-blue-600 px-3 py-2">Amenities</a>
+                        <a href="#virtual-tour" class="text-gray-700 hover:text-blue-600 px-3 py-2">Virtual Tour</a>
+                        <a href="#contact" class="text-gray-700 hover:text-blue-600 px-3 py-2">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="showNewsletterPopup()" class="hidden md:block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                        Get Updates
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="mobile-menu-button md:hidden text-gray-700">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="flex justify-between items-center mb-8">
+            <span class="text-2xl font-bold text-blue-600">Luxury Estates</span>
+            <button onclick="toggleMobileMenu()" class="text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <a href="#about" onclick="toggleMobileMenu()">About</a>
+        <a href="#amenities" onclick="toggleMobileMenu()">Amenities</a>
+        <a href="#virtual-tour" onclick="toggleMobileMenu()">Virtual Tour</a>
+        <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+        <button onclick="showNewsletterPopup(); toggleMobileMenu();" class="w-full mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+            Get Updates
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section flex items-center justify-center text-white">
+        <div class="hero-overlay"></div>
+        <div class="hero-content text-center px-4">
+            <h1 class="hero-title text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                🏡 Luxury Living in the Heart of the City
+            </h1>
+            <h2 class="hero-subtitle text-xl md:text-3xl mb-8 font-light">
+                Experience modern design, premium amenities, and a lifestyle of comfort in our newest community.
+            </h2>
+            <div class="hero-buttons space-x-4">
+                <button onclick="showVirtualTour()" class="hero-button virtual-tour-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-vr-cardboard mr-2"></i> Virtual Tour
+                </button>
+                <button onclick="showNewsletterPopup()" class="hero-button bg-white text-blue-600 font-bold py-4 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Get Early Access
+                </button>
+            </div>
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <i class="fas fa-home mr-2"></i> Luxury Apartments
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-swimming-pool mr-2"></i> Premium Amenities
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-map-marker-alt mr-2"></i> Prime Location
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <a href="#about" class="text-white text-xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Newsletter Popup -->
+    <div class="overlay" id="newsletterOverlay"></div>
+    <div class="newsletter-popup" id="newsletterPopup">
+        <div class="text-center">
+            <h3 class="text-2xl font-bold mb-4">Get Exclusive Updates</h3>
+            <p class="text-gray-600 mb-6">Be the first to know about special offers and property availability!</p>
+            <form id="newsletterForm" class="space-y-4">
+                <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="tel" placeholder="Phone number (optional)" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                    Subscribe Now
+                </button>
+            </form>
+            <button onclick="closeNewsletterPopup()" class="mt-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Why Choose This Property?</h2>
+                    <div class="space-y-6">
+                        <div class="property-feature flex items-start p-4 bg-white rounded-lg shadow-sm">
+                            <div class="flex-shrink-0">
+                                <span class="text-3xl">🏗</span>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-semibold text-gray-900">Modern Architecture</h3>
+                                <p class="text-gray-600">Stunning contemporary design with elegant interiors that blend form and function.</p>
+                            </div>
+                        </div>
+                        <div class="property-feature flex items-start p-4 bg-white rounded-lg shadow-sm">
+                            <div class="flex-shrink-0">
+                                <span class="text-3xl">🌿</span>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-semibold text-gray-900">Prime Location</h3>
+                                <p class="text-gray-600">Situated near shopping centers, schools, and public transport for ultimate convenience.</p>
+                            </div>
+                        </div>
+                        <div class="property-feature flex items-start p-4 bg-white rounded-lg shadow-sm">
+                            <div class="flex-shrink-0">
+                                <span class="text-3xl">🏊</span>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-semibold text-gray-900">Exclusive Amenities</h3>
+                                <p class="text-gray-600">Pool, gym, rooftop garden, and co-working spaces for a complete lifestyle experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Modern Living Room" 
+                         class="rounded-lg shadow-lg cursor-pointer hover:opacity-90 transition-opacity">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" 
+                         alt="Kitchen" 
+                         class="rounded-lg shadow-lg cursor-pointer hover:opacity-90 transition-opacity">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Tour Section -->
+    <section id="virtual-tour" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Experience Luxury Living Virtually</h2>
+                <p class="text-gray-600">Take a 360° virtual tour of our properties from the comfort of your home.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <div class="text-4xl mb-4">🏠</div>
+                    <h3 class="text-xl font-semibold mb-2">Living Room</h3>
+                    <p class="text-gray-600 mb-4">Experience the spacious and elegant living areas</p>
+                    <button onclick="showVirtualTour()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                        View Tour
+                    </button>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <div class="text-4xl mb-4">🍳</div>
+                    <h3 class="text-xl font-semibold mb-2">Kitchen</h3>
+                    <p class="text-gray-600 mb-4">Explore our modern, fully-equipped kitchens</p>
+                    <button onclick="showVirtualTour()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                        View Tour
+                    </button>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6 text-center">
+                    <div class="text-4xl mb-4">🛁</div>
+                    <h3 class="text-xl font-semibold mb-2">Bathroom</h3>
+                    <p class="text-gray-600 mb-4">Discover our luxurious bathroom designs</p>
+                    <button onclick="showVirtualTour()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                        View Tour
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Generation Form -->
+    <section id="contact" class="form-section py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="form-title text-4xl font-bold text-gray-900">Get Exclusive Pre-Launch Pricing</h2>
+                <p class="text-xl text-gray-600">Be among the first to experience luxury living at its finest.</p>
+            </div>
+            
+            <div class="form-container">
+               
+
+                <form id="contactForm" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="form-input">
+                            <input type="text" id="name" required placeholder=" ">
+                            <label for="name">Full Name</label>
+                            <i class="fas fa-user input-icon"></i>
+                        </div>
+                        <div class="form-input">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">Email Address</label>
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="form-input">
+                            <input type="tel" id="phone" required placeholder=" ">
+                            <label for="phone">Phone Number</label>
+                            <i class="fas fa-phone input-icon"></i>
+                        </div>
+                        <div class="form-input">
+                            <select id="apartment-type" required>
+                                <option value="">Select Type</option>
+                                <option>Studio</option>
+                                <option>1 Bedroom</option>
+                                <option>2 Bedrooms</option>
+                                <option>3 Bedrooms</option>
+                                <option>Penthouse</option>
+                            </select>
+                            <label for="apartment-type">Preferred Apartment Type</label>
+                            <i class="fas fa-home input-icon"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <button type="submit" class="submit-button text-white font-bold py-4 px-12 rounded-full transition duration-300 transform hover:scale-105">
+                            Get More Details
+                        </button>
+                    </div>
+                    <div class="form-features">
+                        <div class="form-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>100% Secure</span>
+                        </div>
+                        <div class="form-feature">
+                            <i class="fas fa-envelope"></i>
+                            <span>No Spam Guarantee</span>
+                        </div>
+                        <div class="form-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Limited Time Offer</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">What Our Clients Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400">★★★★★</div>
+                        <div class="ml-2 text-gray-600">5.0</div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The attention to detail and quality of finishes is exceptional. This is truly luxury living at its finest."</p>
+                    <div class="flex items-center">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Client" class="w-10 h-10 rounded-full">
+                        <div class="ml-3">
+                            <p class="font-semibold">Sarah Johnson</p>
+                            <p class="text-sm text-gray-500">Resident</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400">★★★★★</div>
+                        <div class="ml-2 text-gray-600">5.0</div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The amenities are world-class, and the location couldn't be better. A perfect investment opportunity."</p>
+                    <div class="flex items-center">
+                        <img src="https://i.pravatar.cc/150?img=2" alt="Client" class="w-10 h-10 rounded-full">
+                        <div class="ml-3">
+                            <p class="font-semibold">Michael Chen</p>
+                            <p class="text-sm text-gray-500">Investor</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400">★★★★★</div>
+                        <div class="ml-2 text-gray-600">5.0</div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The customer service was outstanding throughout the entire process. Highly recommended!"</p>
+                    <div class="flex items-center">
+                        <img src="https://i.pravatar.cc/150?img=3" alt="Client" class="w-10 h-10 rounded-full">
+                        <div class="ml-3">
+                            <p class="font-semibold">Emma Davis</p>
+                            <p class="text-sm text-gray-500">Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Luxury Estates</h3>
+                    <p class="text-gray-400">Your dream home awaits in the heart of the city.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="#amenities" class="text-gray-400 hover:text-white">Amenities</a></li>
+                        <li><a href="#virtual-tour" class="text-gray-400 hover:text-white">Virtual Tour</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@luxuryestates.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> 123 Luxury Ave, City</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© 2024 Luxury Estates. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Newsletter Popup Functions
+        function showNewsletterPopup() {
+            document.getElementById('newsletterOverlay').style.display = 'block';
+            document.getElementById('newsletterPopup').style.display = 'block';
+        }
+
+        function closeNewsletterPopup() {
+            document.getElementById('newsletterOverlay').style.display = 'none';
+            document.getElementById('newsletterPopup').style.display = 'none';
+        }
+
+        // Virtual Tour Function
+        function showVirtualTour() {
+            document.getElementById('contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form validation and submission
+        const contactForm = document.getElementById('contactForm');
+        const newsletterForm = document.getElementById('newsletterForm');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your interest! We will contact you soon.');
+            contactForm.reset();
+        });
+
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing! We will keep you updated.');
+            newsletterForm.reset();
+            closeNewsletterPopup();
+        });
+
+        // Show newsletter popup after 5 seconds
+        setTimeout(showNewsletterPopup, 5000);
+
+        // Add hover effect to property images
+        document.querySelectorAll('.property-feature img').forEach(img => {
+            img.addEventListener('click', function() {
+                showVirtualTour();
+            });
+        });
+
+        // Form input validation and styling
+        const formInputs = document.querySelectorAll('.form-input input, .form-input select');
+        
+        formInputs.forEach(input => {
+            input.addEventListener('input', function() {
+                validateInput(this);
+            });
+
+            input.addEventListener('blur', function() {
+                validateInput(this);
+            });
+        });
+
+        function validateInput(input) {
+            const formInput = input.closest('.form-input');
+            const value = input.value.trim();
+            
+            // Remove existing classes
+            formInput.classList.remove('error', 'success');
+            
+            if (value === '') {
+                formInput.classList.add('error');
+                return false;
+            }
+
+            // Email validation
+            if (input.type === 'email' && !isValidEmail(value)) {
+                formInput.classList.add('error');
+                return false;
+            }
+
+            // Phone validation
+            if (input.type === 'tel' && !isValidPhone(value)) {
+                formInput.classList.add('error');
+                return false;
+            }
+
+            formInput.classList.add('success');
+            return true;
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function isValidPhone(phone) {
+            return /^\+?[\d\s-]{10,}$/.test(phone);
+        }
+
+        // Update form submission to include validation
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            formInputs.forEach(input => {
+                if (!validateInput(input)) {
+                    isValid = false;
+                }
+            });
+
+            if (isValid) {
+                // Add your form submission logic here
+                alert('Thank you for your interest! We will contact you soon.');
+                contactForm.reset();
+            } else {
+                alert('Please fill in all fields correctly.');
+            }
+        });
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking overlay
+        document.getElementById('mobileMenuOverlay').addEventListener('click', toggleMobileMenu);
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const overlay = document.getElementById('mobileMenuOverlay');
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html> 

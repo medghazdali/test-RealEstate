@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Modern Real Estate Listings | Find Your Dream Home</title>
+    <meta name="title" content="Modern Real Estate Listings | Find Your Dream Home">
+    <meta name="description" content="Browse through our exclusive collection of premium properties. Find houses, apartments, villas, and condos with detailed listings, high-quality images, and virtual tours.">
+    <meta name="keywords" content="real estate, property listings, houses for sale, apartments for rent, luxury homes, real estate agents, property search, home buying, property investment">
+    <meta name="author" content="Modern Real Estate">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Modern Real Estate Listings | Find Your Dream Home">
+    <meta property="og:description" content="Browse through our exclusive collection of premium properties. Find houses, apartments, villas, and condos with detailed listings, high-quality images, and virtual tours.">
+    <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/">
+    <meta property="twitter:title" content="Modern Real Estate Listings | Find Your Dream Home">
+    <meta property="twitter:description" content="Browse through our exclusive collection of premium properties. Find houses, apartments, villas, and condos with detailed listings, high-quality images, and virtual tours.">
+    <meta property="twitter:image" content="https://yourdomain.com/images/og-image.jpg">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="theme-color" content="#3b82f6">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Existing CSS Links -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Menu -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-blue-600">RealEstate</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600">Listings</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600">Favorites</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Sign In</button>
+                    <button class="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50">Register</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section with Search and Filters -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <h1 class="text-3xl font-bold text-gray-900">Featured Properties</h1>
+            <p class="mt-2 text-gray-600">Discover your dream home from our exclusive collection</p>
+            
+            <!-- Search Bar -->
+            <div class="mt-6">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1">
+                        <div class="relative">
+                            <input type="text" 
+                                   id="searchInput"
+                                   placeholder="Search by location, property type, or keywords..." 
+                                   class="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <i class="fas fa-search absolute left-4 top-4 text-gray-400"></i>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 flex items-center justify-center">
+                        <i class="fas fa-search mr-2"></i>
+                        Search
+                    </button>
+                </div>
+            </div>
+
+            <!-- Desktop Filters -->
+            <div class="desktop-filters mt-6">
+                <div class="flex flex-wrap gap-4">
+                    <select id="propertyType" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Property Type</option>
+                        <option value="house">House</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="villa">Villa</option>
+                        <option value="condo">Condo</option>
+                        <option value="office">Office</option>
+                    </select>
+                    <select id="priceRange" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Price Range</option>
+                        <option value="0-500000">$0 - $500,000</option>
+                        <option value="500000-1000000">$500,000 - $1,000,000</option>
+                        <option value="1000000+">$1,000,000+</option>
+                    </select>
+                    <select id="bedrooms" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Bedrooms</option>
+                        <option value="1">1+</option>
+                        <option value="2">2+</option>
+                        <option value="3">3+</option>
+                        <option value="4">4+</option>
+                    </select>
+                    <select id="bathrooms" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Bathrooms</option>
+                        <option value="1">1+</option>
+                        <option value="2">2+</option>
+                        <option value="3">3+</option>
+                        <option value="4">4+</option>
+                    </select>
+                    <select id="sortBy" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="newest">Newest First</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                    <button class="px-4 py-2 text-gray-600 hover:text-blue-600 flex items-center" onclick="toggleAmenities()">
+                        <i class="fas fa-sliders-h mr-2"></i>
+                        Amenities
+                    </button>
+                </div>
+
+                <!-- Amenities Panel (Hidden by default) -->
+                <div id="amenitiesPanel" class="hidden mt-4 p-4 bg-white rounded-lg shadow-md">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox text-blue-600" value="pool">
+                            <span>Pool</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox text-blue-600" value="garage">
+                            <span>Garage</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox text-blue-600" value="garden">
+                            <span>Garden</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox text-blue-600" value="balcony">
+                            <span>Balcony</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox text-blue-600" value="security">
+                            <span>Security</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox text-blue-600" value="elevator">
+                            <span>Elevator</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox text-blue-600" value="parking">
+                            <span>Parking</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox text-blue-600" value="furnished">
+                            <span>Furnished</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Filter Button -->
+    <div class="mobile-filter-button">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-filter text-blue-600"></i>
+            <span class="text-gray-700">Filters</span>
+        </div>
+        <button onclick="toggleMobileFilters()" class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+            Apply Filters
+        </button>
+    </div>
+
+    <!-- Mobile Filter Panel -->
+    <div class="filter-overlay" onclick="toggleMobileFilters()"></div>
+    <div class="mobile-filter-panel">
+        <div class="mobile-filter-header">
+            <h3 class="text-lg font-semibold">Filters</h3>
+            <button class="mobile-filter-close" onclick="toggleMobileFilters()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-filter-content">
+            <div class="mobile-filter-section">
+                <h4 class="font-medium mb-2">Property Type</h4>
+                <select id="mobilePropertyType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">All Types</option>
+                    <option value="house">House</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="villa">Villa</option>
+                    <option value="condo">Condo</option>
+                    <option value="office">Office</option>
+                </select>
+            </div>
+            <div class="mobile-filter-section">
+                <h4 class="font-medium mb-2">Price Range</h4>
+                <select id="mobilePriceRange" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Any Price</option>
+                    <option value="0-500000">$0 - $500,000</option>
+                    <option value="500000-1000000">$500,000 - $1,000,000</option>
+                    <option value="1000000+">$1,000,000+</option>
+                </select>
+            </div>
+            <div class="mobile-filter-section">
+                <h4 class="font-medium mb-2">Bedrooms</h4>
+                <select id="mobileBedrooms" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Any</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                </select>
+            </div>
+            <div class="mobile-filter-section">
+                <h4 class="font-medium mb-2">Bathrooms</h4>
+                <select id="mobileBathrooms" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Any</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                </select>
+            </div>
+            <div class="mobile-filter-section">
+                <h4 class="font-medium mb-2">Amenities</h4>
+                <div class="grid grid-cols-2 gap-2">
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="form-checkbox text-blue-600" value="pool">
+                        <span>Pool</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="form-checkbox text-blue-600" value="garage">
+                        <span>Garage</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="form-checkbox text-blue-600" value="garden">
+                        <span>Garden</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="form-checkbox text-blue-600" value="balcony">
+                        <span>Balcony</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="form-checkbox text-blue-600" value="security">
+                        <span>Security</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="form-checkbox text-blue-600" value="elevator">
+                        <span>Elevator</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="form-checkbox text-blue-600" value="parking">
+                        <span>Parking</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="form-checkbox text-blue-600" value="furnished">
+                        <span>Furnished</span>
+                    </label>
+                </div>
+            </div>
+            <div class="mobile-filter-section">
+                <button onclick="applyMobileFilters()" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Apply Filters
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Property Grid -->
+        <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Property Cards will be dynamically populated here -->
+        </div>
+        
+        <!-- Load More Button -->
+        <div class="text-center mt-12">
+            <button id="loadMoreBtn" onclick="loadMoreProperties()" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center justify-center mx-auto">
+                <i class="fas fa-plus mr-2"></i>
+                Load More Properties
+            </button>
+        </div>
+    </main>
+
+    <!-- Property Details Modal -->
+    <div id="propertyModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 id="modalTitle" class="text-2xl font-bold text-gray-900"></h2>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div id="modalContent" class="space-y-4">
+                    <!-- Content will be dynamically populated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">RealEstate</h3>
+                    <p class="text-gray-400">Your trusted partner in finding the perfect property.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Properties</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@realestate.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> 123 Real Estate Ave</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© 2024 Modern Real Estate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 
